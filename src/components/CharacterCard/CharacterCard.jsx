@@ -2,7 +2,6 @@ import React from 'react'
 import "./CharacterCard.scss"
 
 const CharacterCard = ({ character }) => {
-
   const {name, image, house, patronus, actor} = character;
   let cardColor = "grey";
   switch (house) {

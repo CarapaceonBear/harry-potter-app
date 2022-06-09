@@ -1,11 +1,8 @@
 import React from 'react'
 import "./Characters.scss"
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
-import characters from '../../data/characters';
 
-const Characters = (props) => {
-  const { characters } = props;
-
+const Characters = ({ characters }) => {
   return (
     <div className="characters">
       {characters.map((character, index) => {
