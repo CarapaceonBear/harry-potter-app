@@ -4,14 +4,36 @@ import "./CharacterCard.scss"
 const CharacterCard = ({ character }) => {
 
   const {name, image, house, patronus, actor} = character;
+  let cardColor = "grey";
+  switch (house) {
+    case "Gryffindor":
+      cardColor = "red";
+      break;
+    case "Ravenclaw":
+      cardColor = "blue";
+      break;
+    case "Slytherin":
+      cardColor = "green";
+      break;
+    case "Hufflepuff":
+      cardColor = "yellow";
+      break;
+  };
+  const cardClass = `card ${cardColor}`;
+  const imageClass = `card__portrait ${cardColor}`;
+
+  let patronusText = `Patronus: ${patronus}`;
+  if (patronus.length == 0) {
+    patronusText = " ";
+  }
 
   return (
-    <div className="card">
+    <div className={cardClass}>
       <h1 className="card__name">{name}</h1>
-      <img className="card__portrait" src={image} alt={name} />
+      <img className={imageClass} src={image} alt={name} />
       <h2 className="card__house">{house}</h2>
-      <h3 className="card__info">Patronus: {patronus}</h3>
-      <h3 className="card_info">Played by: {actor}</h3>
+      <h3 className="card__info">{patronusText}</h3>
+      <h3 className="card__actor">Played by: {actor}</h3>
     </div>
   )
 }

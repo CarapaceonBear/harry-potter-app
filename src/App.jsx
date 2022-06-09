@@ -6,7 +6,7 @@ function App() {
   return(
     <div className="App">
       <section className="heading" >
-        <h1 className="heading__title" >Harry Potter App</h1>
+        <h1 className="heading__title" >Harry Potter</h1>
         {/* search box */}
       </section>
 

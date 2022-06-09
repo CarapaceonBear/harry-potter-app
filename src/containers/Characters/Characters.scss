@@ -1,0 +1,10 @@
+@use "../../assets/scss/variables" as *;
+
+.characters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
