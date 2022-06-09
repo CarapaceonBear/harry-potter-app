@@ -1,7 +1,7 @@
 import React from 'react'
 import "./CharacterCard.scss"
 
-const CharacterCard = (props) => {
+const CharacterCard = ({ character }) => {
 
   return (
     <div>

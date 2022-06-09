@@ -1,11 +1,20 @@
 import characters from "./data/characters";
-import "./App.css";
+import "./App.scss";
+import Characters from "./containers/Characters/Characters";
 
 function App() {
   return(
-  <div className="App">
-    <h1>Harry Potter App</h1>
-  </div>
+    <div className="App">
+      <section className="heading" >
+        <h1 className="heading__title" >Harry Potter App</h1>
+        {/* search box */}
+      </section>
+
+      <section className="gallery" >
+        <Characters characters={characters} />
+      </section>
+
+    </div>
   );
 }
 
