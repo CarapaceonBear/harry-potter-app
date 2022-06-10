@@ -2,11 +2,12 @@ import React, {useEffect, useState} from 'react'
 import "./Characters.scss"
 import CharacterCard from '../../components/CharacterCard/CharacterCard';
 
-const Characters = ({ house }) => {
+const Characters = ({ house, search }) => {
   const [characterArray, setArray] = useState();
 
   useEffect(() => {
     getCharacters().then(items => setArray(items))
+    
   }, [house]);
 
   const getCharacters = async () => {
@@ -28,14 +29,30 @@ const Characters = ({ house }) => {
         data = await fetch("https://hp-api.herokuapp.com/api/characters/house/hufflepuff");
         break;
     }
-    console.log("test");
     return await data.json();
   };
+
+  // useEffect(() => {
+  //   if (search != "") {
+  //     setArray(characterArray.filter((character) => {
+  //       return (character.name.toLowerCase()).includes(search.toLowerCase())
+  //     }))
+  //   }
+  // }, [search]);
+
   
   return (
     <div className="characters">
       {(characterArray || []).map((character, index) => {
-        return <CharacterCard key={index} character={character}/>
+        if (search != "") {
+          if ((character.name.toLowerCase()).includes(search.toLowerCase())) {
+            return <CharacterCard key={index} character={character} hidden={false} />
+          } else {
+            return <CharacterCard key={index} character={character} hidden={true} />
+          }
+        } else {
+          return <CharacterCard key={index} character={character} hidden={false}/>
+        }
       })}
     </div>
   )

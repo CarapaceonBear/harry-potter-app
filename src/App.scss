@@ -15,13 +15,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 18px;
 
   &__logo {
-    height: 150px;
+    max-height: 150px;
   }
-  &__title {
-    display: none;
-    font-size: 32px;;
+  &__search {
+    align-self: flex-start;
+    &--label {
+      align-self: flex-start;
+      margin-left: 1rem;
+    }
+  }
+  &__house-menu {
+    align-self: flex-end;
+    margin-top: -30px;
+    margin-bottom: 3rem;
   }
 }
 

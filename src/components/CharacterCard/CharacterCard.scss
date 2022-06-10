@@ -21,7 +21,6 @@
         text-align: center;
         color: $color-dark-grey;
     }
-
 }
 
 .grey {
@@ -38,4 +37,8 @@
 }
 .yellow {
     border: 5px solid $color-yellow;
+}
+
+.hidden {
+    display: none;
 }

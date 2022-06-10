@@ -1,7 +1,7 @@
 import React from 'react'
 import "./CharacterCard.scss"
 
-const CharacterCard = ({ character }) => {
+const CharacterCard = ({ character, hidden }) => {
   const {name, image, house, patronus, actor} = character;
   let cardColor = "grey";
   switch (house) {
@@ -18,11 +18,14 @@ const CharacterCard = ({ character }) => {
       cardColor = "yellow";
       break;
   };
-  const cardClass = `card ${cardColor}`;
+  let cardClass = `card ${cardColor}`;
+  if (hidden) {
+    cardClass =  `card ${cardColor} hidden`
+  };
   const imageClass = `card__portrait ${cardColor}`;
 
   let patronusText = `Patronus: ${patronus}`;
-  if (patronus.length == 0) {
+  if (patronus.length === 0) {
     patronusText = " ";
   }
 
