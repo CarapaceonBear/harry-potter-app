@@ -1,24 +1,19 @@
-import characters from "./data/characters";
+import React, {useEffect, useState} from "react";
 import "./App.scss";
 import Characters from "./containers/Characters/Characters";
-import { getCharacters} from "./services/CharacterService";
-
 
 function App() {
-  
-  
-  let temp = [...characters];
-  
-  const getCharacters = async () => {
-    const response = await fetch("https://hp-api.herokuapp.com/api/characters");
-    const data = await response.json();
+  const [characterArray, setArray] = useState();
 
-    return data;
-  }
-  // console.log(getCharacters());
-  // console.log(characters);
-  // temp = getCharacters();
-  
+  useEffect(() => {
+    getCharacters().then(items => setArray(items))
+  }, []);
+
+  const getCharacters = async () => {
+    const data = await fetch("https://hp-api.herokuapp.com/api/characters");
+    return await data.json();
+  };
+
 
   return(
     <div className="App">
@@ -28,7 +23,7 @@ function App() {
       </section>
 
       <section className="gallery" >
-        <Characters characters={getCharacters()} />
+        <Characters characters={characterArray} />
       </section>
 
     </div>
